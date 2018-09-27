@@ -1,0 +1,30 @@
+<apex:page controller="radioButtonExample" sidebar="false" showHeader="false">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Search Type" collapsible="true" columns="1" id="pbs1"  >
+            <!--<apex:selectRadio value="{!sValue}">
+                <apex:actionSupport action="{!test}" event="onchange" reRender="viewpage1"  status="status1" />
+                <apex:selectOptions value="{!Items}" ></apex:selectOptions> 
+            </apex:selectRadio>-->
+            <apex:selectRadio value="{!sValue}">
+                <apex:actionSupport action="{!test}" event="onchange" reRender="pbs1" />
+                <apex:selectOption Itemvalue="SearchByOwner" ItemLabel="SearchByOwner"/>
+                <apex:selectOption itemValue="SearchByName" itemLabel="SearchByName"/>
+            </apex:selectRadio>
+            <apex:outputPanel >
+                        <apex:pageBlockSection title="Search" rendered="{!sValue != null}">
+                             <apex:inputText value="{!searchTxt}" label="{!sValue}" />
+                            <apex:commandButton value="View {!sValue}" action="{!myMethod}" reRender="pbt1"/>
+                        </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:outputPanel id="pbt1">
+                <apex:pageMessages />
+                <apex:pageBlockTable value="{!accRec}" var="vd" >
+                       <apex:column value="{!vd.Name}" />
+                       <apex:column value="{!vd.Phone}" />
+                </apex:pageBlockTable> 
+            </apex:outputPanel>
+     </apex:pageBlockSection>
+    </apex:pageBlock> 
+</apex:form> 
+</apex:page>

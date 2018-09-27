@@ -1,0 +1,11 @@
+<apex:page controller="dummy">  
+  <apex:form >
+  
+  <apex:pagemessages id="outText1"></apex:pagemessages>
+  
+  <apex:commandButton action="{!mymethod}" value="save" reRender="outText1"/>
+  
+  
+  
+  </apex:form>
+</apex:page>

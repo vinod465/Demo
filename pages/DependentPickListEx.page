@@ -1,0 +1,23 @@
+<apex:page controller="dependentPickListEx">
+<apex:form >
+    <apex:pageBlock >
+    <apex:pageBlockSection >
+    <apex:pageBlockSectionItem >
+    <apex:outputLabel for="Account-Name" value="Account Name"></apex:outputLabel>
+        <apex:selectList value="{!accid}" id="Account-Name" size="1">
+        <apex:actionSupport action="{!conRec}" event="onchange" reRender="pbs1" />
+        <apex:selectOptions value="{!items}"></apex:selectOptions>
+        </apex:selectList>
+     </apex:pageBlockSectionItem>
+     <apex:pageBlockSectionItem id="pbs2">
+     <apex:outputLabel for="Contact-Name" value="Related Contacts"></apex:outputLabel>
+     <apex:outputPanel id="pbs1">
+         <apex:selectList id="Contact-Name" size="1">
+         <apex:selectOptions value="{!conItems}"></apex:selectOptions>
+         </apex:selectList>
+      </apex:outputPanel>
+     </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

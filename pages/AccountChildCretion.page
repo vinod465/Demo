@@ -1,0 +1,15 @@
+<apex:page standardController="Account"  extensions="childAccountCreation">
+  <apex:form >
+      <apex:pageblock >
+          <apex:pageBlockSection >
+              <apex:inputField value="{!acc.Name}"/>
+              <apex:inputField value="{!acc.AccountNumber}"/>
+              <apex:inputField value="{!acc.No_Of_Child_Accounts__c}"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons >
+              <apex:commandButton action="{!myMethod}" value="Save"/>
+          </apex:pageBlockButtons>
+      </apex:pageblock>
+  
+  </apex:form>
+</apex:page>

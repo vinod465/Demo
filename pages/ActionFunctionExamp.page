@@ -1,0 +1,38 @@
+<apex:page controller="ActionFunctionExampCtrl">
+    <apex:form id="fm">
+    <apex:actionStatus startText="Loading..." stopText="Completed" id="st"></apex:actionStatus>
+    
+     <apex:actionStatus id="status1">
+            <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.75; z-index: 1000; background-color: black;">
+                &nbsp;
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 30% 50%">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/e/ed/Cursor_Windows_Vista.gif" />
+            </div>
+            </apex:facet>
+        </apex:actionStatus>
+    <apex:actionFunction action="{!mymethod}" name="callAf" />
+        <apex:pageblock id="pb">
+            <apex:pageblockSection id="pbs">
+                <apex:inputText value="{!searchVal}" id="intxt"/>
+                <apex:selectList value="{!item}">
+                    <apex:selectOption itemLabel="1" itemValue="1"></apex:selectOption>
+                    <apex:actionSupport action="{!mymethod}" event="onchange" />
+                </apex:selectList>
+                <apex:commandButton onclick="callFunction()" reRender="test" status="status1"/>
+            </apex:pageblockSection>
+        </apex:pageblock>    
+    </apex:form>
+    <script>
+        function callFunction(){
+        var inputval = document.getElementById('{!$Component.fm.pb.pbs.intxt}').value;
+        if(inputval.length <=5){
+        alert('plz enter at least 5 charcters!');
+        }
+        else{
+        callAf();
+        }
+        }
+    </script>
+</apex:page>

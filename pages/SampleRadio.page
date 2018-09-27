@@ -1,0 +1,25 @@
+<apex:page controller="sampleRadio" sidebar="false" showHeader="false">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Search Type" collapsible="true" columns="1" id="viewpage1"  >
+            <apex:selectRadio value="{!viewPage}">
+                <apex:actionSupport action="{!test}" event="onchange" reRender="viewpage1"  status="status1" />
+                <apex:selectOptions value="{!rValues}" ></apex:selectOptions> 
+            </apex:selectRadio>        
+            <apex:outputPanel >
+                        <apex:pageBlockSection title="Search" rendered="{!viewPage!=null}">
+                             <apex:inputText value="{!SearchName}" label="Search {!viewPage}" />
+                            <apex:commandButton value="View {!viewPage}" action="{!ViewDetails}" reRender="viewpage2"/>
+                        </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:outputPanel id="viewpage2">
+                <apex:pageMessages />
+                <apex:pageBlockTable value="{!items}" var="vd"    style="" >
+                       <apex:column value="{!vd.Name}" />
+                       <apex:column value="{!vd.Phone}" />
+                </apex:pageBlockTable> 
+            </apex:outputPanel>
+     </apex:pageBlockSection>
+    </apex:pageBlock> 
+</apex:form> 
+</apex:page>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Incoming</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Incomings</value>
+    </caseValues>
+    <fields>
+        <label><!-- volunteer job --></label>
+        <name>volunteer_job__c</name>
+        <relationshipLabel><!-- Product Incomings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- volunteer shift --></label>
+        <name>volunteer_shift__c</name>
+        <relationshipLabel><!-- Product Incomings --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

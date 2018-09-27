@@ -1,0 +1,17 @@
+<apex:page controller="SearchExample">
+  <apex:form >
+  <apex:pageblock title="Search for the Contact">
+  <apex:inputText value="{!searchval}"/>
+  </apex:pageblock>
+  <apex:pageBlock id="pb1">
+  <apex:pageBlockTable value="{!items}" var="ref" rendered="{!items.size>0}">
+  <apex:column headerValue="Name" value="{!ref.Name}"/>
+  <apex:column headerValue="Phone" value="{!ref.Phone}"/>
+  </apex:pageBlockTable>
+  
+  </apex:pageBlock>
+  <apex:commandButton action="{!myMethod}" value="Search" ReRender="pb1,pg1"/>
+  <apex:pageMessages id="pg1" >
+  </apex:pageMessages>
+  </apex:form>
+</apex:page>

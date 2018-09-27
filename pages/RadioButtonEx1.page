@@ -1,0 +1,35 @@
+<apex:page controller="RadioButtonEx1">
+    <apex:form >
+        <apex:pageblock title="Search....">
+        <apex:pageBlockSection columns="1">
+        <apex:pageBlockSectionItem >
+        <apex:outputLabel value="Search:" for="int-txt"/>
+        <apex:inputText value="{!searchTxt}" id="int-txt"/>
+        </apex:pageBlockSectionItem>
+        
+        <apex:pageBlockSectionItem >
+            <apex:selectRadio value="{!displayradiovalue}">
+            <apex:selectOption Itemvalue="SearchByOwner" ItemLabel="SearchByOwner"/>
+            <apex:selectOption itemValue="SearchByName" itemLabel="SearchByName"/>
+            </apex:selectRadio>
+        </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+          <apex:CommandButton action="{!myMethod}" value="Search" reRender="pb1" />
+          </apex:pageBlockButtons>
+          </apex:pageblock>
+          <apex:image id="theImage" value="{!$Resource.myResourceImage}" width="200" height="200" />
+         <apex:outputPanel id="pb1"> 
+        <apex:pageBlock title="Account Details"  rendered="{!items.size>0}"> 
+        <apex:pageblockTable value="{!items}" var="ref" >
+        <apex:column headerValue="Name" value="{!ref.Name}"/>
+        <apex:column headerValue="Phone" value="{!ref.Phone}"/>
+        </apex:pageblockTable>
+        </apex:pageBlock>
+        </apex:outputPanel>
+        
+      
+        
+    </apex:form>
+  
+</apex:page>

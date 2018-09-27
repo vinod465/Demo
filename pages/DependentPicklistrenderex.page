@@ -1,0 +1,31 @@
+<apex:page controller="dependentPicklistrenderex">
+<apex:form >
+    <apex:pageBlock >
+    <apex:pageBlockSection >
+        <apex:outputLabel for="Country" value="Country"/>
+        <apex:selectList value="{!counId}" id="Country" size="1"> 
+        <apex:actionSupport action="{!StateValues}" event="onchange" reRender="pbs1"/>       
+        <apex:selectOptions value="{!items}"></apex:selectOptions>
+        </apex:selectList>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection id="pbs1">
+        <apex:outputLabel for="State" value="State"/>
+        <apex:outputPanel rendered="{!counId != null}">
+        <apex:selectList value="{!statId}" id="State" size="1">
+        <apex:actionSupport action="{!DistValues}" event="onchange" rerender="pbs2"/>
+        <apex:selectOptions value="{!options1}"></apex:selectOptions>
+        </apex:selectList>
+        </apex:outputPanel>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection id="pbs2">
+        <apex:outputLabel for="District" value="District"/>
+        <apex:OutputPanel rendered="{!statId != null}">
+        <apex:selectList id="District" size="1">
+        <apex:selectOptions value="{!options2}"></apex:selectOptions>
+        </apex:selectList>
+        </apex:OutputPanel>
+    </apex:pageBlockSection>
+    
+    </apex:pageBlock>
+</apex:form> 
+</apex:page>

@@ -1,0 +1,32 @@
+<apex:page standardController="Account"  extensions="accountContrlExtn">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection Title="Account Info">
+                <apex:inputField value="{!acc.Name}"/>
+                <apex:inputField value="{!acc.AccountNumber}"/>
+                <apex:inputField value="{!acc.ISO__c}"/>
+                <apex:inputField value="{!acc.Are_you_under_ISO__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Billing Address">
+                <apex:inputField value="{!acc.BillingStreet}"/>
+                <apex:inputField value="{!acc.BillingCity}"/>
+                <apex:inputField value="{!acc.BillingState}"/>
+                <apex:inputField value="{!acc.BillingPostalCode}"/>
+                <apex:inputField value="{!acc.BillingCountry}"/>
+            </apex:pageBlockSection>
+            <apex:pageMessages id="error1">
+            </apex:pageMessages>
+            <!--<apex:pageMessages id="error2">
+            </apex:pageMessages>
+            <apex:pageMessages id="error3">
+            </apex:pageMessages>-->
+            
+            
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!myMehtod}" value="Save" reRender="error1"/>
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

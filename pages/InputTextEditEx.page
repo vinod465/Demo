@@ -1,0 +1,38 @@
+<apex:page Controller="inputTextEditEx">
+<apex:form >
+<apex:pageBlock >
+    <apex:pageBlockSection >
+    <apex:pageBlockSectionItem >
+        <apex:outputLabel for="Account-Name" value="Account Name"/>
+        <apex:selectList value="{!accId}" id="Account-Name" size="1">
+        <apex:actionSupport action="{!conDetails}" event="onchange" reRender="PageBlock"/>
+        <apex:selectOptions value="{!accItems}"></apex:selectOptions>
+        </apex:selectList>
+     </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+    
+    <apex:outputPanel id="PageBlock">
+    <apex:pageBlockSection title="Contact Details" columns="3" id="PageBlock1" rendered="{!accId!=null}" collapsible="false">
+        <apex:inputField value="{!con.LastName}"/>
+        <apex:inputField value="{!con.FirstName}"/>
+         <apex:outputField value="{!con.Phone}" />
+          <apex:inputField value="{!con.MobilePhone}"/>
+           <apex:inputField value="{!con.Fax}"/>
+            <apex:inputField value="{!con.Languages__c}"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Opportinity Details" columns="3" rendered="{!accId!=null}" collapsible="false">
+         <apex:inputField value="{!opp.Name}"/>
+        <apex:inputField value="{!opp.StageName}"/>
+         <apex:outputField value="{!opp.Type}" />
+          <apex:inputField value="{!opp.Description}"/>
+           <apex:inputField value="{!opp.OrderNumber__c}"/>
+            <apex:inputField value="{!opp.TrackingNumber__c}"/>
+       <apex:pageMessages id="error1"/>
+        <div align="center" draggable="false" >
+        <apex:commandButton action="{!updateCon}" value="Save" reRender="error1"/>
+        </div>
+    </apex:pageBlockSection>
+    </apex:outputPanel>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,30 @@
+<apex:page controller="AccInfoex">
+    
+    <apex:form >
+        <apex:pageblock title="Account Edit">
+            <apex:pageBlockSection title="Account Info">
+                <apex:inputText value="{!name}"  label="Name"/>
+                <apex:inputText value="{!phone}" label="Phone"/>
+                <apex:inputText value="{!Accnum}" label="AccountNumber" />
+                <apex:inputText value="{!website}" label="Website"/> 
+               <apex:selectList value="{!type}"  label="Type" size="1">
+                <apex:selectOptions value="{!TypeOptions}" />
+                </apex:selectList>
+               <!-- <apex:selectList value="{!rating}" label="Rating" size="1">
+                <apex:selectOptions value="{!items1}" />
+                </apex:SelectList>-->
+            </apex:pageBlockSection>
+             <apex:pageBlockSection title="Address Details">
+                <apex:inputTextArea value="{!billingstrt}" label="BillingStreet"/>
+                <apex:inputText Value="{!billingcty}" label="BillingCity"/>
+                <apex:inputText value="{!billingstate}" label="BillingState"/>
+                <apex:inputText value="{!billingpc}" label="BillingPostalCode"/>
+                <apex:inputText value="{!billingCountry}" label="BillingCountry"/>
+              </apex:pageBlockSection>
+              <apex:pageBlockSection title="Other Information">
+                <apex:inputText Value="{!noLo}" label="NumberOfLocations"/>
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!mymethod}" value="Save"/>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

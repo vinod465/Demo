@@ -1,0 +1,18 @@
+<apex:page controller="RenderExamle">
+ 
+ <apex:form >
+     <apex:pageBlock title="block1">
+         <apex:inputText value="{!searchVal}"/>
+     </apex:pageBlock>    
+      <apex:pageBlock id="tab1">
+      <apex:outputPanel id="out">
+          <apex:pageBlockTable value="{!items}" var="ref" rendered="{!items.size>0}">
+          <apex:column headerValue="Name" value="{!ref.Name}"/>
+           <apex:column headerValue="Phone" value="{!ref.Phone}"/>
+          
+          </apex:pageBlockTable>
+          </apex:outputPanel>
+      </apex:pageBlock>
+     <apex:commandButton action="{!ymethod}" value="search" reRender="out"/>
+ </apex:form>
+</apex:page>

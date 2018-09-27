@@ -1,0 +1,12 @@
+<apex:page >
+   <apex:form >
+   <apex:pageBlock >
+   <apex:pageBlockSection >
+       <apex:selectRadio >
+           <apex:selectOption itemLabel="Male" itemValue="Male"></apex:selectOption>
+            <apex:selectOption itemLabel="Female" itemValue="Feale"></apex:selectOption>
+       </apex:selectRadio>
+   </apex:pageBlockSection>   
+   </apex:pageBlock>   
+   </apex:form>
+</apex:page>

@@ -1,0 +1,28 @@
+<apex:page controller="Params" docType="html-5.0">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Name">
+                <apex:inputText value="{!FirstName}" label="FirstName"/>
+                <apex:inputText value="{!LastName}" label="LastName"/>   
+            </apex:pageBlockSection>    
+            
+            <apex:pageBlockSection title="Address">
+                <apex:inputText value="{!addOne}" label="AddressLine1"/>
+                <apex:inputText value="{!addTwo}" label="AddressLine2"/>
+                <apex:inputText value="{!city}" label="City"/>
+                <apex:inputText value="{!country}" label="Country"/>
+                <apex:inputText value="{!Zipcode}" label="ZipCode"/>  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Contact Details">
+                
+                <apex:inputText value="{!email}" label="Email"/>
+                <apex:inputText value="{!phone}" label="Phone Number"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:commandButton value="Click" action="{!mymethod}" />
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,39 @@
+<apex:page controller="actionfunctionexample">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection collapsible="false" columns="1">
+                 <apex:actionFunction action="{!stateValues}" name="calactfun"  reRender="render1"  />
+                 <apex:actionFunction action="{!DistValues}" name="calactfun1"  reRender="render2"/>
+                 <apex:selectList label="Country" value="{!CounId}" size="1" onchange="calfun()"  >
+                     <apex:selectOption itemLabel="--select--" itemValue="--select--"/>                     
+                     <apex:selectOptions value="{!options}"/>                      
+                     <apex:selectOption itemLabel="--other--" itemValue="--other--"/>
+                 </apex:selectList>              
+</apex:pageBlockSection>
+<apex:pageBlockSection id="render1" columns="1">                        
+                       <apex:outputpanel rendered="{!CounId == '--other--'}" />
+                    <apex:selectList label="State" value="{!StateId}" size="1" onchange="calfun1()">
+                        <apex:selectOption itemLabel="--select--" itemValue="--select--"/> 
+                        <apex:selectOptions value="{!options1}"/> 
+                        <apex:selectOption itemLabel="--other--" itemValue="--other--"/>
+                    </apex:selectList>
+                           
+</apex:pageBlockSection> 
+<apex:pageBlockSection id="render2" columns="1" >
+                       <apex:outputpanel rendered="{!StateId == '--other--'}" />
+                        <apex:selectList label="District" value="{!DistId}" size="1"   >
+                        <apex:selectOption itemLabel="--select--" itemValue="--select--" /> 
+                        <apex:selectOptions value="{!options2}"/> 
+                        <apex:actionSupport event="onchange" reRender="render3" />
+                        <apex:selectOption itemLabel="--other--" itemValue="--other--"/>
+                 </apex:selectList> 
+                
+</apex:pageBlockSection>
+
+</apex:pageblock>
+<script>
+    function calfun(){calactfun()();}
+    function calfun1(){calactfun1();}        
+</script>
+</apex:form>             
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" extensions="InputFieldExampleCtrl" >
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection title="Information">
+<apex:inputfield value="{!acc.Name}"/>
+<apex:inputfield value="{!acc.AccountNumber}"/>
+<apex:inputfield value="{!acc.Description}"/>
+</apex:pageBlockSection>   
+<apex:pageblockButtons >
+<apex:commandButton action="{!myMethod}" value="Save"/>
+</apex:pageblockButtons>   
+</apex:pageBlock>  
+</apex:form>
+</apex:page>

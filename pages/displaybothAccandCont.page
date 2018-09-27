@@ -1,0 +1,33 @@
+<apex:page controller="displaybothAccandCont">
+  <apex:form >
+      <apex:pageMessages id="pmsg1">
+      </apex:pageMessages>
+      <apex:pageblock title="Search...">
+      <apex:inputText value="{!searchTxt}"/>
+      </apex:pageblock>
+      <apex:outputPanel id="pbt1">
+      <apex:pageblock title="Accounts" id="pb1" >
+      <apex:pageblockTable value="{!items}" var="ref" rendered="{!items.size>0}" >
+      <apex:column headerValue="Name" value="{!ref.Name}" />
+      <apex:column headerValue="Name" value="{!ref.Phone}" />
+      </apex:pageblockTable>
+      <apex:outputText rendered="{!items.size==0}">
+          No contacts found
+      </apex:outputText>
+      </apex:pageblock>
+      </apex:outputPanel>
+      <apex:outputPanel id="pbt2">
+      <apex:pageblock title="Contacts" id="pb2" >
+      <apex:pageblockTable value="{!itemsCon}" var="ref" rendered="{!itemsCon.size>0}">
+      <apex:column headerValue="Name" value="{!ref.Name}" />
+      <apex:column headerValue="Name" value="{!ref.Phone}" />
+      </apex:pageblockTable>
+      <apex:outputText rendered="{!itemsCon.size==0}">
+          No contacts found
+      </apex:outputText>
+          
+      </apex:pageblock>
+      </apex:outputPanel>
+      <apex:commandButton action="{!myMethod}" value="Search" ReRender="pbt1,pbt2,pmsg1"/>
+  </apex:form>
+</apex:page>

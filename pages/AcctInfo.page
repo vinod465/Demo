@@ -1,0 +1,32 @@
+<apex:page controller="AccountInformation" >
+    <apex:form >
+        <apex:pageblock title="Account Edit">
+            <apex:pageBlockSection title="Account Information">
+                <apex:inputField value="{!acc.Name}" />
+                <apex:inputfield value="{!acc.Phone}" />
+                <apex:inputfield value="{!acc.AccountNumber}" />
+                <apex:inputfield value="{!acc.Website}" />
+                <apex:inputfield value="{!acc.Type}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Address Information">
+                <apex:inputfield value="{!acc.BillingStreet}" />
+                <apex:inputfield value="{!acc.BillingCity}" />
+                <apex:inputfield value="{!acc.BillingState}" />
+                <apex:inputfield value="{!acc.BillingPostalCode}" />
+                <apex:inputfield value="{!acc.BillingCountry}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Additional Information">
+                <apex:inputfield value="{!acc.CustomerPriority__c}" />
+                <apex:inputfield value="{!acc.SLA__c}" />
+                <apex:inputfield value="{!acc.SLAExpirationDate__c}" />
+                <apex:inputfield value="{!acc.NumberofLocations__c}" />
+                <apex:inputfield value="{!acc.Active__c}" />
+            </apex:pageBlockSection>
+            <div align="center" draggable="false" >
+                <apex:commandButton value="Save" action="{!Save}" />
+            </div>
+        </apex:pageblock>
+        
+        
+    </apex:form>
+</apex:page>
